@@ -1,0 +1,24 @@
+{
+  "name": "quizz-gpio",
+  "version": "1.0.0",
+  "description": "permet d'envoyer un post lors d'un click sur un bouton",
+  "main": "quizz-gpio.js",
+  "devDependencies": {
+    "onoff": "^1.0.2",
+    "request": "^2.60.0"
+  },
+  "dependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ideesdumidi/quizz-gpio-app.git"
+  },
+  "author": "Pierre Fiorelli",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ideesdumidi/quizz-gpio-app/issues"
+  },
+  "homepage": "https://github.com/ideesdumidi/quizz-gpio-app#readme"
+}
