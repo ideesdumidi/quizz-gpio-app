@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "description": "permet d'envoyer un post lors d'un click sur un bouton",
   "main": "quizz-gpio.js",
-  "devDependencies": {
-    "onoff": "^1.0.2",
-    "request": "^2.60.0"
+  "devDependencies": {},
+  "dependencies": {
+    "socket.io": "^1.3.7",
+    "onoff": "^1.0.2"
   },
-  "dependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

@@ -1,37 +1,32 @@
 // var GPIO = require('onoff').Gpio;
-var request = require('request');
 // var buttonYes = new GPIO(17, 'in', 'both'),
-    // buttonNo = new GPIO(18, 'in', 'both');
+// buttonNo = new GPIO(18, 'in', 'both');
  
+ 
+  var socket = require('socket.io-client')('http://localhost:1234', { query: "user=user1" });
+
 function sendYes(err, state) {
-  if(state == 1) {
-    post(1);
-  }
+	if (state == 1) {
+		post(1);
+	}
 }
 
 function sendNo(err, state) {
-  if(state == 1) {
-    post(2);
-  }
+	if (state == 1) {
+		post(2);
+	}
 }
-
-function post(value){
-	request.post(
-		'http://localhost:9000/api/answers',
-		{ answer: value },
-		function (error, response, body) {
-			if (!error && response.statusCode == 200) {
-				console.log(body)
-			}else{
-				console.log(error||response.statusCode);
-			}
-		}
-	);
+function post(value) {
+        console.log("CLIENT: post value");
+	socket.emit("answer:add", value, function(err){
+        console.log("CLIENT: value sent");
+	});
 }
  
 // pass the callback function to the
 // as the first argument to watch()
 // buttonYes.watch(sendYes);
 // buttonNo.watch(sendNo);
-
+socket.on('connected', function() {
 post(1);
+});
