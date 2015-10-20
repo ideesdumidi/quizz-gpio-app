@@ -1,7 +1,15 @@
-// var GPIO = require('onoff').Gpio;
-// var buttonYes = new GPIO(17, 'in', 'both'),
-// buttonNo = new GPIO(18, 'in', 'both');
- 
+try {
+	var GPIO = require('onoff').Gpio;
+	var buttonYes = new GPIO(17, 'in', 'both'),
+	buttonNo = new GPIO(18, 'in', 'both');
+	
+	// pass the callback function to the
+	// as the first argument to watch()
+	buttonYes.watch(sendYes);
+	buttonNo.watch(sendNo);
+} catch (error) {
+        console.log("CLIENT: librairie GPIO introuvable");	
+}
  
   var socket = require('socket.io-client')('http://localhost:1234', { query: "user=user1" });
 
@@ -23,10 +31,6 @@ function post(value) {
 	});
 }
  
-// pass the callback function to the
-// as the first argument to watch()
-// buttonYes.watch(sendYes);
-// buttonNo.watch(sendNo);
 socket.on('connected', function() {
 post(1);
 });
